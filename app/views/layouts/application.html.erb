@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title class="text-success">ながのケーキ</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/f97bdf8bf2.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+        <header>
+          <nav class="navbar navbar-expand-lg">
+          <div class="container">
+              <%= link_to root_path do %>
+              <%= image_tag "top.jpeg", size: '240x180' %>
+              <% end %>
+              <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                <%= link_to  public_about_path, class: "fas btn btn-light" do %>
+                About
+                <% end %>
+                </li>
+                
+                <li>
+                <%= link_to public_items_path, class: "fas btn btn-light" do %>
+                商品一覧
+                <% end %>
+                </li>
+                
+                <li>
+                  <%= link_to  new_customer_registration_path, class: "fas btn btn-light" do %>
+                  新規登録
+                  <% end %>
+                </li>
+                
+                <li>
+                  <%= link_to  new_customer_session_path, class: "fas btn btn-light" do %>
+                  ログイン
+                  <% end %>
+                </li>
+                
+              </ul>
+          </div>
+
+
+          </nav>
+
+
+
+
+        </header>
+
+        <main id="content">
+          <%= yield %>
+        </main>
+
+
+      <!-- </div> -->
+    </div>
+  </body>
+</html>
