@@ -21,6 +21,12 @@ Rails.application.routes.draw do
     resources :items, only:[:index,:show,:new] do
     get :search, on: :collection
   end
+  
+    scope module: 'customers' do
+    root 'items#top'
+    resources :items, only: [:show, :index]
+    get 'about' => 'items#about'
+   end
     resources :cart_items
     post '/orders/session' => 'orders#session_create'
     get '/orders/confirm' => 'orders#confirm'
