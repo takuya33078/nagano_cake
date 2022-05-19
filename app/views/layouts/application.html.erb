@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/f97bdf8bf2.js" crossorigin="anonymous"></script>
   </head>
@@ -15,12 +15,15 @@
 
         <header>
           <nav class="navbar navbar-expand-lg">
-          <div class="container">
+           <div class="container">
               <%= link_to root_path do %>
               <%= image_tag "top.jpeg", size: '240x180' %>
               <% end %>
+              
               <ul class="nav navbar-nav navbar-right">
+                
                 <% if customer_signed_in? %>
+                
                 <li style="font-family: HiraMinPro-W6; margin-top: 15px;">
                 ようこそ、<%= current_customer.last_name + current_customer.first_name %>さん！
                 </li>
@@ -32,7 +35,7 @@
                 </li>
 
                 <li>
-                <%= link_to　items_path, class: "fas btn btn-light" do %></li>
+                <%= link_to public_items_path, class: "fas btn btn-light" do %>
                 商品一覧
                 <% end %>
                 </li>
@@ -44,7 +47,7 @@
                 </li>
 
                 <li>
-                <%= link_to destroy_customer_session_path, method: :delete, class: "fas btn btn-light" do  %>
+                <%= link_to destroy_customer_session_path, method: :delete, class: "fas btn btn-light" do %>
                 ログアウト
                 <% end %>
                 </li>
@@ -52,13 +55,13 @@
                 <% elsif admin_signed_in? %>
 
                 <li>
-                <%= link_to admins_items_path, class: "fas btn btn-light" do  %>
+                <%= link_to admins_items_path, class: "fas btn btn-light" do %>
                 商品一覧
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to admins_customers_path, class: "fas btn btn-light" do  %>
+                <%= link_to admins_customers_path, class: "fas btn btn-light" do %>
                 会員一覧
                 <% end %>
                 </li>
@@ -81,10 +84,10 @@
                 <% end %>
                 </li>
 
-        <% else %>
+               <% else %>
 
                 <li>
-                <%= link_to  public_about_path, class: "fas btn btn-light" do %>
+                <%= link_to public_about_path, class: "fas btn btn-light" do %>
                 About
                 <% end %>
                 </li>
@@ -96,34 +99,25 @@
                 </li>
 
                 <li>
-                  <%= link_to  new_customer_registration_path, class: "fas btn btn-light" do %>
+                  <%= link_to new_customer_registration_path, class: "fas btn btn-light" do %>
                   新規登録
                   <% end %>
                 </li>
 
                 <li>
-                  <%= link_to  new_customer_session_path, class: "fas btn btn-light" do %>
+                  <%= link_to new_customer_session_path, class: "fas btn btn-light" do %>
                   ログイン
                   <% end %>
                 </li>
-
+              <% end %>
               </ul>
           </div>
-
-
           </nav>
-
-
-
-
         </header>
 
         <main id="content">
           <%= yield %>
         </main>
-
-
-      <!-- </div> -->
     </div>
   </body>
 </html>
