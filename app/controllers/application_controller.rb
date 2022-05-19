@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
       case resource
         when Admin
           admins_root_path
-        when Customer
-          root_path
+        when Public
+          public_items_path
       end
     end
 
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 	protected
 
 	def configure_permitted_parameters
-		added_attrs = [ :last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :phone_number, :email, :password, :password_confirmation ]
+		added_attrs = [ :last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :email, :password, :password_confirmation ]
 
 		devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
 	end

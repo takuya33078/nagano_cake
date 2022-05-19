@@ -19,17 +19,17 @@
               <%= link_to root_path do %>
               <%= image_tag "top.jpeg", size: '240x180' %>
               <% end %>
-              
+
               <ul class="nav navbar-nav navbar-right">
-                
+
                 <% if customer_signed_in? %>
-                
+
                 <li style="font-family: HiraMinPro-W6; margin-top: 15px;">
                 ようこそ、<%= current_customer.last_name + current_customer.first_name %>さん！
                 </li>
 
                 <li>
-                <%= link_to customers_show_path, class: "fas btn btn-light" do %>
+                <%= link_to customers_my_page_path, class: "fas btn btn-light" do %>
                 マイページ
                 <% end %>
                 </li>
@@ -41,7 +41,7 @@
                 </li>
 
                 <li>
-                <%= link_to customers_cart_items_path, class: "fas btn btn-light" do %>
+                <%= link_to public_cart_items_path, class: "fas btn btn-light" do %>
                 カート
                 <% end %>
                 </li>
