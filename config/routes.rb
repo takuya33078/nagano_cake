@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :items, only:[:index,:show,:new] do
     get :search, on: :collection
-
+    patch '/update' => 'customers#update'
   end
 
     scope module: 'customers' do
