@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
 #  devise_for :admins
-  devise_for :admin, controllers: {
 
+  devise_for :admin, controllers: {
+  passwords: 'admin/passwords',
+  registrations: 'admin/registrations',
   sessions: 'admin/sessions'
  }
+
   root 'public/homes#top'
   devise_for :customers, controllers: {
   registrations: "public/registrations",
@@ -12,7 +15,7 @@ Rails.application.routes.draw do
  }
 
   namespace :admin do
-    get '/admins' => 'admins#top'
+    root :to => 'top#top'
     resources :items
     resources :genres
     resources :costomers
