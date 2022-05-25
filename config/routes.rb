@@ -15,7 +15,7 @@ Rails.application.routes.draw do
  }
 
   namespace :admin do
-    root :to => 'top#top'
+    root :to => 'homes#top'
     resources :items
     resources :genres
     resources :costomers

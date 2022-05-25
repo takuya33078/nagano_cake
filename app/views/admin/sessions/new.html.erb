@@ -1,6 +1,6 @@
-<h6 style="width: 100px;background-color: #d3d3d3">管理者ログイン</h6>
+<h10 style="width: 100px;background-color: #d3d3d3">管理者ログイン</h10>
 
-<%= form_with(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_with model: @admin, url: admin_session_path, local: true  do |f| %>
 
   <div class="field">
     <%= f.label :email, "メールアドレス" %>    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -13,6 +13,6 @@
 
 
   <div class="actions">
-    <%= f.submit "ログイン" %>
+    <%= f.submit "ログイン", class: "btn btn-primary btn-lg center-block" %>
   </div>
 <% end %>
