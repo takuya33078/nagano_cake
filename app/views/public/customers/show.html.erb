@@ -4,9 +4,8 @@
  </div> 
  <div class="mx-auto col-11 col-sm-10">
   <strong class="information-link">登録情報</strong>
- <%= link_to " 編集する", edit_public_customers_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
- </div>
-  <table class="mx-auto  col-lg-8 col-xl-6 width: auto;table table-bordered table-condensed">
+ <%= link_to " 編集する", edit_public_customers_path, class: "btn btn-success" %>
+ <table class="mx-auto  col-lg-8 col-xl-6 width: auto;table table-bordered table-condensed">
     <tr>
      <td class="col-xs-2">氏名</td>
      <td><%= current_customer.last_name %><%= current_customer.first_name %></td>
@@ -37,4 +36,13 @@
      <td><%= current_customer.email %></td>
     </tr>
   </table>
+  <p>
+   <strong class="information-link">配送先</strong>
+   <%= link_to " 一覧を見る", public_addresses_path, class: "btn btn-primary" %>  
+  </p>
+  <p>
+   <strong class="information-link">注文一覧</strong> 
+  </p>
+ </div>
+  
 </div>
