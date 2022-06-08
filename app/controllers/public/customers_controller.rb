@@ -7,7 +7,6 @@ end
 
 def edit
  @customer = current_customer
- @customers = Customer.find(params[:id])
 end
 
 def update

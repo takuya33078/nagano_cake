@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get '/customers/my_page' => 'public/customers#show'
   namespace :public do
     get '/about' => 'homes#about'
-    get '/customers/unsubcribe' => 'customers/unsubcribe#unsubcribe'
+    get '/customers/unsubcribe' => 'customers#unsubcribe'
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :items, only:[:index,:show,:new] do
     get :search, on: :collection
