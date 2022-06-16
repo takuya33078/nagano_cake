@@ -1,7 +1,7 @@
 
 <div class="container my-5">
   <div class="row">
-    <h2>商品新規登録</h2>
+    <h10 style="background-color: #d3d3d3">商品新規登録</h10>
   </div>
 
   <div class="row d-flex justify-content-center">
@@ -10,14 +10,12 @@
     <% end %>
   </div>
 
-  <%= form_with model: @item, url: 'admin_items_path' do |f| %>
+  <%= form_with model: @item, url: admin_items_path do |f| %>
     <div class="row mt-5">
-      <div class="col-sm-4">
+      <div class="">
         <%= f.label :商品画像 %>
         <%= f.attachment_field :image %>
-      </div>
 
-      <div class="col-sm-5">
         <div class="form-group row">
           <%= f.label :商品名, class: "col-sm-4" %>
           <%= f.text_field :name, class: "form-control col-sm-8" %>
@@ -25,7 +23,7 @@
 
         <div class="form-group row">
           <%= f.label :商品説明, class: "col-sm-4" %>
-          <%= f.text_area :description, class: "form-control col-sm-8" %>
+          <%= f.text_area :introduction, class: "form-control col-sm-8" %>
         </div>
 
         <div class="form-group row">
@@ -46,7 +44,7 @@
       </div>
 
       <div class="col-sm-2 mt-auto ml-5">
-        <%= f.submit :新規登録, class: "btn btn-primary" %>
+        <%= f.submit :新規登録, class: "btn btn-success" %>
       </div>
 
     </div>

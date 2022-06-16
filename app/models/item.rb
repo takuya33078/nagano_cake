@@ -4,6 +4,6 @@ class Item < ApplicationRecord
   has_many :order_details
   attachment :image
   validates :name, {presence: true}
-  validates :description, {presence: true}
-  validates :price_without_tax, {presence: true}
+  validates :introduction, {presence: true}
+  validates :price, {presence: true}
 end

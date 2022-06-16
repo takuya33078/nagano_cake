@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-   <h6 style="width: 100px;background-color: #d3d3d3">注文履歴一覧</h6>
+   <h6 style="background-color: #d3d3d3">注文履歴一覧</h6>
   </div>
 </div>
 
@@ -17,14 +17,7 @@
     </thead>
 
     <tbody>
-     <% @Items.each do |item| %>
-      <tr>
-       <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"), admin_order_path(order) %></td>
-       <td><%= order.customer.last_name + "　" + order.customer.first_name %></td>
-       <td><%= order.order_details.sum(:quantity) %></td>
-      </tr>
-     <% end %>
-     <%= paginate @Items %>
+     #<%= paginate @Items %>
     </tbody>
    </table>
   </div>    

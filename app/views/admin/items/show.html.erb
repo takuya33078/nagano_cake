@@ -1,6 +1,6 @@
 <div class="container my-5">
   <div class="row">
-    <h2>商品詳細</h2>
+    <h10 style="background-color: #d3d3d3">商品詳細</h10>
   </div>
 
   <div class="row mt-3">
@@ -18,7 +18,7 @@
 
           <tr>
             <td>商品説明</td>
-            <td><%= @item.description %></td>
+            <td><%= @item.introduction %></td>
           </tr>
 
           <tr>
@@ -29,7 +29,7 @@
           <tr>
             <td>税込価格(税抜価格)</td>
             <td>
-              <%= @item.price %>(<%= (@item.price * 1.1).floor %>)円
+              <%= (@item.price * 1.1).floor %>(<%= @item.price %>)円
             </td>
           </tr>
 
