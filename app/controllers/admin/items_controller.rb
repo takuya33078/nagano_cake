@@ -23,11 +23,11 @@ class Admin::ItemsController < ApplicationController
    redirect_to new_admin_item_path
    end
   end
-  
+
   def show
     @item = Item.find(params[:id])
   end
-  
+
   def edit
     @item = Item.find(params[:id])
   end
