@@ -17,9 +17,18 @@
     </thead>
 
     <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M"), admin_order_path(order) %></td>
+            <td><%= order.customer.last_name %>
+              <%= order.customer.first_name %>
+            </td>
+            <td><%= order.order_details.sum(:amount) %></td>
+          </tr>
+        <% end %>
      #<%= paginate @Items %>
     </tbody>
    </table>
-  </div>    
+  </div>
  </div>
 </div>

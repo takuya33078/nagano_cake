@@ -11,8 +11,11 @@
      <%= link_to edit_public_customers_path, class: " btn btn-primary active col-sm-3", style: "margin: 10px;" do %>
      退会しない
      <% end %>
-     
-
+    </p>
+    <p>
+     <%= link_to public_customers_withdrawal_path(@customer),method: :patch, class: " btn btn-danger active col-sm-3", style: "margin: 10px;" do %>
+     退会する
+     <% end %>
     </p>
    </div>
 

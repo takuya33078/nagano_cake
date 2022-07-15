@@ -12,11 +12,11 @@
             <td><%= @customer.id %>
               <% if @customer.is_deleted == true %>
                 <div class="bg-info d-inline text-white p-1 ml-3 rounded">
-                  有効会員
+                  退会済み
                 </div>
               <% else %>
                 <div class="bg-warning d-inline text-white p-1 ml-3 rounded">
-                  退会済み
+                  有効会員
                 </div>
               <% end %>
 

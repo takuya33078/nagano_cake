@@ -9,7 +9,7 @@ Rails.application.routes.draw do
  }
 
   root 'public/homes#top'
-  devise_for :customers, controllers: {
+  devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
  }
@@ -21,30 +21,25 @@ Rails.application.routes.draw do
     resources :genres,only:[:index,:edit,:create,:update]
     resources :customers
     resources :orders,only:[:index,:show,:update]
-    resources :order_items, only:[:update]
+    resources :order_details, only:[:update]
   end
-  get '/customers/my_page' => 'public/customers#show'
   namespace :public do
+    get '/customers/my_page' => 'customers#show'
     get '/about' => 'homes#about'
     get '/customers/unsubcribe' => 'customers#unsubcribe'
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :items, only:[:index,:show,:new] do
     get :search, on: :collection
     patch '/update' => 'customers#update'
-  end
+    end
 
-    scope module: 'customers' do
     root 'items#top'
     resources :items, only: [:show, :index]
     get 'about' => 'items#about'
-   end
     resources :cart_items
-    post '/orders/session' => 'orders#session_create'
-    get '/orders/confirm' => 'orders#confirm'
     post '/orders/confirm' => 'orders#confirm'
-    get '/orders/thanks' => 'orders#thanks'
-    patch '/customers/withdrawal' => 'customers#destroy'
-    get '/customers/withdrawal' => 'customers#withdrawal'
+    get '/orders/complete' => 'orders#complete'
+    patch '/customers/withdrawal' => 'customers#withdrawal'
     resources :orders, only:[:new,:create,:index,:show]
     resource :customers, only:[:edit,:update]
     resources :addresses, only:[:index, :edit, :destroy, :create, :update]
