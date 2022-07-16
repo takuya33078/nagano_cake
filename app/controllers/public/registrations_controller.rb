@@ -52,7 +52,7 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 
   # The path used after sign up.
    def after_sign_up_path_for(resource)
-      public_items_path
+      public_customers_my_page_path
    end
 
   # The path used after sign up for inactive accounts.

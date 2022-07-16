@@ -69,12 +69,12 @@
               </tr>
             </thead>
             <tbody>
-          	<% @order.order_details.each do |order| %>
+          	<% @order.order_details.each do |order_detail| %>
               <tr>
-                  <td><%= order.item_id %></td>
-                  <td>¥<%= (order.item.price * 1.1).floor.to_s(:delimited, delimiter: ',') %></td>
-                  <td><%= order.amount %></td>
-                  <td>¥<%= (order.amount*order.item.price * 1.1).floor.to_s(:delimited, delimiter: ',') %></td>
+                  <td><%= order_detail.item.name %></td>
+                  <td>¥<%= (order_detail.item.price * 1.1).floor.to_s(:delimited, delimiter: ',') %></td>
+                  <td><%= order_detail.amount %></td>
+                  <td>¥<%= (order_detail.amount*order_detail.item.price * 1.1).floor.to_s(:delimited, delimiter: ',') %></td>
               </tr>
             <% end %>
             </tbody>
